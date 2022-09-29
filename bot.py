@@ -1,5 +1,4 @@
 import logging
-from matplotlib import artist
 import requests
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.dispatcher import FSMContext
@@ -7,12 +6,10 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.utils.markdown import hide_link
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher.filters import Text
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-import time
 
 
-API_TOKEN = '5611755208:AAEhMQAMR2lmGAS1uNH1AGkW0EUeoMoUfZA'
+
+API_TOKEN = 'API_TOKEN'
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -54,13 +51,13 @@ async def send_welcome(message: types.Message):
 # Хэндлер на команду /milano_songs
 @dp.message_handler(text='20 треков Scally')
 async def cmd_test1(message: types.Message):
-    url = "https://genius-song-lyrics1.p.rapidapi.com/artists/2040265/songs"
+    url = "https://API_HOST/artists/2040265/songs"
 
     querystring = {"sort":"title","per_page":"20","page":"1"}
 
     headers = {
-        "X-RapidAPI-Key": "c30a3e4eefmsh005fbb18a21016ap15e87cjsnac664dd22942",
-        "X-RapidAPI-Host": "genius-song-lyrics1.p.rapidapi.com"
+        "X-RapidAPI-Key": "API_TOKEN",
+        "X-RapidAPI-Host": "API_HOST"
     }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
@@ -81,13 +78,13 @@ async def cmd_test1(message: types.Message):
 # Хэндлер на команду /charts
 @dp.message_handler(text='Топ 10 треков Genius')
 async def cmd_test2(message: types.Message):
-    url = "https://genius-song-lyrics1.p.rapidapi.com/songs/chart"
+    url = "https://API_HOST/songs/chart"
 
     querystring = {"time_period":"day","chart_genre":"all","per_page":"10","page":"1"}
 
     headers = {
-        "X-RapidAPI-Key": "c30a3e4eefmsh005fbb18a21016ap15e87cjsnac664dd22942",
-        "X-RapidAPI-Host": "genius-song-lyrics1.p.rapidapi.com"
+        "X-RapidAPI-Key": "API_TOKEN",
+        "X-RapidAPI-Host": "API_HOST"
     }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
@@ -146,11 +143,11 @@ async def parse_lovely_artist(message: types.Message, state: FSMContext):
 # Хэндлер на команду /lyrics
 @dp.message_handler(text='Текст песни Scally')
 async def send_text(message: types.Message):
-    url = "https://genius-song-lyrics1.p.rapidapi.com/songs/6329375/lyrics"
+    url = "https://API_HOST/songs/6329375/lyrics"
 
     headers = {
-        "X-RapidAPI-Key": "c30a3e4eefmsh005fbb18a21016ap15e87cjsnac664dd22942",
-        "X-RapidAPI-Host": "genius-song-lyrics1.p.rapidapi.com"
+        "X-RapidAPI-Key": "API_TOKEN",
+        "X-RapidAPI-Host": "API_HOST"
     }
 
     response = requests.request("GET", url, headers=headers)
@@ -182,13 +179,13 @@ async def cmd_hidden_link(message: types.Message):
 # Хэндлер на команду /artists_chart
 @dp.message_handler(text='Чарт артистов')
 async def artists_chart(message: types.Message):
-    url = "https://genius-song-lyrics1.p.rapidapi.com/artists/chart"
+    url = "https://API_HOST/artists/chart"
 
     querystring = {"time_period":"day","per_page":"10","page":"1"}
 
     headers = {
-        "X-RapidAPI-Key": "c30a3e4eefmsh005fbb18a21016ap15e87cjsnac664dd22942",
-        "X-RapidAPI-Host": "genius-song-lyrics1.p.rapidapi.com"
+        "X-RapidAPI-Key": "API_TOKEN",
+        "X-RapidAPI-Host": "API_HOST"
     }
 
     response = requests.request("GET", url, headers=headers, params=querystring)

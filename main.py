@@ -1,21 +1,16 @@
-import json
 import requests
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-import time
-from config import *
 
 
 
 # Scally Milano albums
 def albums_milano():
-    url = "https://genius-song-lyrics1.p.rapidapi.com/artists/2040265/albums"
+    url = "https://host/artists/2040265/albums"
 
     querystring = {"per_page":"20","page":"1"}
 
     headers = {
-        "X-RapidAPI-Key": "d8a2b24394msh530522f623e5ebcp1dff13jsn3401538088fc",
-        "X-RapidAPI-Host": "genius-song-lyrics1.p.rapidapi.com"
+        "X-RapidAPI-Key": "api_key",
+        "X-RapidAPI-Host": "host"
     }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
@@ -25,13 +20,13 @@ def albums_milano():
 
 # Scally Milano songs
 def songs_milano():
-    url = "https://genius-song-lyrics1.p.rapidapi.com/artists/2040265/songs"
+    url = "https://host/artists/2040265/songs"
 
     querystring = {"sort":"title","per_page":"20","page":"1"}
 
     headers = {
-        "X-RapidAPI-Key": "d8a2b24394msh530522f623e5ebcp1dff13jsn3401538088fc",
-        "X-RapidAPI-Host": "genius-song-lyrics1.p.rapidapi.com"
+        "X-RapidAPI-Key": "api_key",
+        "X-RapidAPI-Host": "host"
     }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
@@ -45,13 +40,13 @@ def songs_milano():
 
 # Get top chart of genius.com
 def top_chart():
-    url = "https://genius-song-lyrics1.p.rapidapi.com/songs/chart"
+    url = "https://host/songs/chart"
 
     querystring = {"time_period":"day","chart_genre":"all","per_page":"10","page":"1"}
 
     headers = {
-        "X-RapidAPI-Key": "c30a3e4eefmsh005fbb18a21016ap15e87cjsnac664dd22942",
-        "X-RapidAPI-Host": "genius-song-lyrics1.p.rapidapi.com"
+        "X-RapidAPI-Key": "api_key",
+        "X-RapidAPI-Host": "host"
     }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
@@ -60,13 +55,13 @@ def top_chart():
 
 
 def new_func():
-    url = "https://genius-song-lyrics1.p.rapidapi.com/search"
+    url = "https://host/search"
 
     querystring = {"q":"Scally Milano","per_page":"10","page":"1"}
 
     headers = {
-        "X-RapidAPI-Key": "c30a3e4eefmsh005fbb18a21016ap15e87cjsnac664dd22942",
-        "X-RapidAPI-Host": "genius-song-lyrics1.p.rapidapi.com"
+        "X-RapidAPI-Key": "api_key",
+        "X-RapidAPI-Host": "host"
     }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
@@ -76,13 +71,13 @@ def new_func():
 
 def artists_chart():
 
-    url = "https://genius-song-lyrics1.p.rapidapi.com/artists/chart"
+    url = "https://host/artists/chart"
 
     querystring = {"time_period":"day","per_page":"10","page":"1"}
 
     headers = {
-        "X-RapidAPI-Key": "c30a3e4eefmsh005fbb18a21016ap15e87cjsnac664dd22942",
-        "X-RapidAPI-Host": "genius-song-lyrics1.p.rapidapi.com"
+        "X-RapidAPI-Key": "api_key",
+        "X-RapidAPI-Host": "host"
     }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
@@ -94,11 +89,11 @@ def artists_chart():
 
 
 def take_lyrics():
-    url = "https://genius-song-lyrics1.p.rapidapi.com/songs/6329375/lyrics"
+    url = "https://host/songs/6329375/lyrics"
 
     headers = {
-        "X-RapidAPI-Key": "c30a3e4eefmsh005fbb18a21016ap15e87cjsnac664dd22942",
-        "X-RapidAPI-Host": "genius-song-lyrics1.p.rapidapi.com"
+        "X-RapidAPI-Key": "api_key",
+        "X-RapidAPI-Host": "host"
     }
 
     response = requests.request("GET", url, headers=headers)
